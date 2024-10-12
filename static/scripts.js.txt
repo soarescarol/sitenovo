@@ -1,0 +1,35 @@
+// Perguntas e respostas
+const qaPairs = {
+    "O que é OPRM?": "OPRM é a sigla para 'Otimização de Recursos em Matemática', um campo importante para entender como alocar recursos eficientemente.",
+    "Quais tópicos você cobre nas aulas de reforço?": "Cubro diversos tópicos, incluindo álgebra, geometria, trigonometria, e mais, sempre adaptando às necessidades do aluno.",
+    "Como posso entrar em contato?": "Você pode entrar em contato através do meu e-mail: soarescarolina31@gmail.com.",
+    "Quais são os horários das aulas?": "As aulas são agendadas conforme a disponibilidade do aluno. Entre em contato para mais detalhes.",
+    "Você oferece material de estudo?": "Sim, ofereço materiais em PDF e vídeos exclusivos para complementar as aulas.",
+    "Como funcionam as aulas online?": "As aulas são realizadas via videoconferência e são interativas, com espaço para perguntas e exercícios.",
+    "Qual é o preço das aulas?": "Os pacotes de aulas variam, entre em contato para saber mais sobre preços e pacotes disponíveis."
+};
+
+// Função para enviar uma mensagem
+document.getElementById('send-button').onclick = function() {
+    var userInput = document.getElementById('user-input').value;
+    var chatbox = document.getElementById('chatbox');
+    
+    // Exibir a entrada do usuário no chatbox
+    chatbox.innerHTML += "<p><strong>Você:</strong> " + userInput + "</p>";
+    
+    // Responder de acordo com a pergunta
+    var response = "Desculpe, não entendi sua pergunta. Pode reformular?";
+    if (qaPairs[userInput]) {
+        response = qaPairs[userInput];
+    }
+
+    // Exibir a resposta do chatbot
+    chatbox.innerHTML += "<p><strong>Chatbot:</strong> " + response + "</p>";
+    
+    // Limpar o campo de entrada
+    document.getElementById('user-input').value = '';
+    
+    // Manter o chat visível
+    chatbox.scrollTop = chatbox.scrollHeight;
+};
+
